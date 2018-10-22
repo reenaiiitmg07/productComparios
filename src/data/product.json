@@ -1,0 +1,36 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Cherry",
+      "price": "$1.99",
+      "colors": ["red", "green", "blue"],
+      "condition": "Fresh",
+      "description": "Two Cherries"
+    },
+    {
+      "id": "2",
+      "name": "Orange",
+      "price": "$2.99",
+      "colors": ["green", "blue"],
+      "condition": "Frozen",
+      "description": "Giant Orange"
+    },
+    {
+      "id": "3",
+      "name": "Nuts",
+      "price": "$1.00",
+      "colors": ["red"],
+      "condition": "Frozen",
+      "description": "Mixed Nuts"
+    },
+    {
+      "id": "4",
+      "name": "Strawberry",
+      "price": "$1.49",
+      "colors": ["blue"],
+      "condition": "Fresh",
+      "description": "Just Strawberry"
+    }
+  ]
+}
