@@ -9,21 +9,30 @@ class App extends Component {
     super(props);
     this.state={
        flag:[],
-       comProd:[]
+       comProd:[],
+       count:0
     }
   }
   compare(id){
     let flag=this.state.flag;
     flag[id]=!flag[id];
     this.setState({flag:flag});
-    console.log(id);
+    //console.log(id);
     let data=this.props.data;
     let saveProd=this.state.comProd;
+    let count=this.state.count;
+    //console.log(saveProd);
     let comProd=data.filter((item)=>{
       if(item.id==id)
+      {count++;
       return item;
+    }
     })
-    saveProd.concat(comProd);
+    saveProd.push(comProd[0])
+    this.setState({comProd:saveProd,
+                  count:count
+    })
+    console.log(count);
     console.log(comProd);
 
   }
@@ -51,6 +60,9 @@ class App extends Component {
           </div>
         )
       }):null}
+      </div>
+      <div className="row">
+    
       </div>
       </div>
     );
