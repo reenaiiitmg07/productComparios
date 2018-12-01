@@ -17,18 +17,26 @@ class App extends Component {
     let flag=this.state.flag;
     flag[id]=!flag[id];
     this.setState({flag:flag});
-    //console.log(id);
+    console.log(flag[id]);
     let data=this.props.data;
     let saveProd=this.state.comProd;
     let count=this.state.count;
     //console.log(saveProd);
     let comProd=data.filter((item)=>{
       if(item.id==id)
-      {count++;
+      {
       return item;
     }
     })
-    saveProd.push(comProd[0])
+    if(flag[id])
+    {
+    saveProd.push(comProd[0]);
+    count++;
+  }
+    else {
+      saveProd.pop(comProd[0]);
+      count--;
+    }
     this.setState({comProd:saveProd,
                   count:count
     })
@@ -61,10 +69,30 @@ class App extends Component {
         )
       }):null}
       </div>
-      <div className="row">
-    
-      </div>
-      </div>
+      {
+        this.state.count>=2?
+        <div className="row">
+        <div className="col-sm-2">
+         <p>name</p>
+         <p>price</p>
+         <p>colors</p>
+         <p>condition</p>
+
+        </div>
+        {this.state.comProd.map((item)=>{
+          return(
+        <div className="col-sm-2">
+        <p>{item.name}</p>
+        <p>{item.price}</p>
+        <p>{item.colors}</p>
+        <p>{item.condition}</p>
+
+        </div>
+      )
+      })}
+        </div>:null
+      }
+    </div>
     );
   }
 }
